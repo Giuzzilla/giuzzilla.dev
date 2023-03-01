@@ -1,15 +1,18 @@
 ---
-const { content } = Astro.props;
+import Header from '../components/Header.astro';
+
+const { title } = Astro.props;
 ---
 
-<html lang="en">
+<html class="h-full" lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{content.title}</title>
+		<title>Giulio Mazzanti - {title}</title>
 	</head>
-	<body>
+	<body class="h-full">
+		<Header />
 		<slot />
 	</body>
 </html>

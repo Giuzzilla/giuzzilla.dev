@@ -9,27 +9,27 @@ import Logo from './Logo.astro';
     aria-label="Global"
   >
     <Logo />
-    <div class="flex lg:hidden">
-      <button
-        type="button"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+    <button
+      type="button"
+      id="mobile-menu-button-open"
+      class="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+    >
+      <span class="sr-only">Open menu</span>
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        aria-hidden="true"
       >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-        </svg>
-      </button>
-    </div>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+
     <div class="hidden lg:flex lg:gap-x-12">
       <a href="/" class="text-sm font-semibold leading-6 text-gray-900"
         >Homepage</a
@@ -43,47 +43,48 @@ import Logo from './Logo.astro';
     <div class="hidden lg:flex lg:flex-1 lg:gap-x-6 lg:justify-end">
       <SocialIcons />
     </div>
-    <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
-      <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div
+      id="mobile-menu"
+      class="hidden lg:hidden"
+      role="dialog"
+      aria-modal="true"
+    >
       <div
-        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 max-w-sm ring-1 ring-gray-900/10"
       >
-        <div class="flex items-center justify-between">
-          <Logo />
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-            <span class="sr-only">Close menu</span>
-            <svg
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
+        <button
+          id="mobile-menu-button-close"
+          type="button"
+          class="hidden lg:hidden -m-2.5 rounded-md p-2.5 text-gray-700"
+        >
+          <span class="sr-only">Close menu</span>
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div class="flex flex-1 gap-x-6">
+          <SocialIcons />
         </div>
-        <div class="mt-6 flow-root">
-          <div class="-my-6 divide-y divide-gray-500/10">
-            <div class="space-y-2 py-6">
-              <a
-                href="/"
-                class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Homepage</a
-              >
-              <span
-                aria-disabled="true"
-                class="-mx-3 block rounded-lg py-2 px-3 text-base font-light leading-7 text-gray-600 hover:bg-gray-50"
-                >Blog (In construction)</span
-              >
-            </div>
-          </div>
-        </div>
+        <a
+          href="/"
+          class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+          >Homepage</a
+        >
+        <span
+          aria-disabled="true"
+          class="-mx-3 block rounded-lg py-2 px-3 text-base font-light leading-7 text-gray-600 hover:bg-gray-50"
+          >Blog (In construction)</span
+        >
       </div>
     </div>
   </nav>
@@ -99,6 +100,37 @@ import Logo from './Logo.astro';
       }
     }
 
+    function SwitchMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuButtonOpen = document.getElementById(
+        'mobile-menu-button-open'
+      );
+      const mobileMenuButtonClose = document.getElementById(
+        'mobile-menu-button-close'
+      );
+
+      if (!mobileMenu || !mobileMenuButtonOpen || !mobileMenuButtonClose)
+        return;
+
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuButtonOpen.classList.add('hidden');
+        mobileMenuButtonClose.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButtonOpen.classList.remove('hidden');
+        mobileMenuButtonClose.classList.add('hidden');
+      }
+    }
+
+    document
+      .getElementById('mobile-menu-button-open')
+      ?.addEventListener('click', () => SwitchMobileMenu());
+
+    document
+      .getElementById('mobile-menu-button-close')
+      ?.addEventListener('click', () => SwitchMobileMenu());
+
     function toggleTheme() {
       if (localStorage.theme === 'dark') {
         applyTheme('light');
@@ -113,12 +145,11 @@ import Logo from './Logo.astro';
       applyTheme('dark');
     }
 
-    const logo_light = document.getElementById('logo-light');
-    const logo_dark = document.getElementById('logo-dark');
+    const light_logos = document.getElementsByClassName('logo-light');
+    const dark_logos = document.getElementsByClassName('logo-dark');
 
-    if (logo_light && logo_dark) {
-      logo_light.addEventListener('click', () => toggleTheme());
-      logo_dark.addEventListener('click', () => toggleTheme());
-    }
+    [...light_logos, ...dark_logos].forEach(logo => {
+      logo.addEventListener('click', () => toggleTheme());
+    });
   </script>
 </header>

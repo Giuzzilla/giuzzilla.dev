@@ -2,14 +2,20 @@
 const website_name = "Giulio Mazzanti's Personal Website";
 ---
 
-<div class="flex lg:flex-1">
+<div class="flex lg:flex-1 text-2xl">
   <button>
     <span class="sr-only">{website_name}</span>
-    <span class="logo-light transition ease-in-out delay-150 dark:hidden"
-      >Giulio Mazzanti</span
+    <div
+      class="logo-light transition-all ease-in-out duration-1000 dark:hidden"
     >
-    <span class="logo-dark transition ease-in-out delay-150 hidden dark:block"
-      >Giuzzilla</span
+      <span>gmazzanti</span><span class="text-blue-900">.dev</span>
+    </div>
+  </button>
+  <button
+    class="logo-dark transition-all ease-in-out duration-1000 hidden dark:block"
+  >
+    <span class="text-neutral-50">giuzzilla</span><span class="text-amber-400"
+      >.dev</span
     >
   </button>
 </div>

@@ -12,11 +12,11 @@ import Logo from './Logo.astro';
     <button
       type="button"
       id="mobile-menu-button-open"
-      class="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-900 dark:text-slate-50"
+      class="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-900 dark:text-slate-50 hover:text-blue-700 dark:hover:text-amber-400"
     >
       <span class="sr-only">Open menu</span>
       <svg
-        class="h-6 w-6"
+        class="h-12 w-12"
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
@@ -33,12 +33,12 @@ import Logo from './Logo.astro';
     <div class="hidden lg:flex lg:gap-x-12">
       <a
         href="/"
-        class="text-sm font-semibold leading-6 text-slate-900 dark:text-slate-50 hover:text-blue-700 dark:hover:text-amber-400"
+        class="text-sm font-semibold p-6 leading-6 text-slate-900 dark:text-slate-50 hover:text-blue-700 dark:hover:text-amber-400"
         >About me</a
       >
       <span
         aria-disabled="true"
-        class="text-sm font-light leading-6 text-slate-600 dark:text-slate-50"
+        class="text-sm font-light p-6 leading-6 text-slate-600 dark:text-slate-50"
         >Blog (In construction)</span
       >
     </div>
@@ -52,41 +52,45 @@ import Logo from './Logo.astro';
       aria-modal="true"
     >
       <div
-        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-slate-50 dark:bg-slate-700 px-6 py-6 max-w-sm ring-1 ring-gray-900/10"
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-slate-50 dark:bg-slate-700 px-6 py-6"
       >
-        <button
-          id="mobile-menu-button-close"
-          type="button"
-          class="hidden lg:hidden -m-2.5 rounded-md p-2.5 text-slate-900 dark:text-slate-50"
-        >
-          <span class="sr-only">Close menu</span>
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            aria-hidden="true"
+        <div class="mb-6 flex items-center w-full">
+          <div class="flex flex-1 gap-x-6">
+            <SocialIcons />
+          </div>
+          <button
+            id="mobile-menu-button-close"
+            type="button"
+            class="text-slate-900 dark:text-slate-50 hover:text-blue-700 dark:hover:text-amber-400"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-        <div class="flex flex-1 gap-x-6">
-          <SocialIcons />
+            <span class="sr-only">Close menu</span>
+            <svg
+              class="h-12 w-12"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
         </div>
-        <a
-          href="/"
-          class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-slate-900 dark:text-slate-50 dark:text-neutral-200 hover:bg-slate-200 dark:hover:bg-slate-800"
-          >About me</a
-        >
-        <span
-          aria-disabled="true"
-          class="-mx-3 block rounded-lg py-2 px-3 text-base font-light leading-7 text-slate-600 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-800"
-          >Blog (In construction)</span
-        >
+        <div class="grid gap-y-6 text-center">
+          <a
+            href="/"
+            class="-mx-3 block rounded-lg py-6 text-2xl font-semibold leading-7 text-slate-900 dark:text-slate-50 dark:text-neutral-200 hover:bg-slate-200 dark:hover:bg-slate-800"
+            >About me</a
+          >
+          <span
+            aria-disabled="true"
+            class="-mx-3 block rounded-lg py-6 text-2xl font-light leading-7 text-slate-600 dark:text-slate-50"
+            >Blog (In construction)</span
+          >
+        </div>
       </div>
     </div>
   </nav>
@@ -104,25 +108,8 @@ import Logo from './Logo.astro';
 
     function SwitchMobileMenu() {
       const mobileMenu = document.getElementById('mobile-menu');
-      const mobileMenuButtonOpen = document.getElementById(
-        'mobile-menu-button-open'
-      );
-      const mobileMenuButtonClose = document.getElementById(
-        'mobile-menu-button-close'
-      );
-
-      if (!mobileMenu || !mobileMenuButtonOpen || !mobileMenuButtonClose)
-        return;
-
-      if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-        mobileMenuButtonOpen.classList.add('hidden');
-        mobileMenuButtonClose.classList.remove('hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-        mobileMenuButtonOpen.classList.remove('hidden');
-        mobileMenuButtonClose.classList.add('hidden');
-      }
+      if (!mobileMenu) return;
+      mobileMenu.classList.toggle('hidden');
     }
 
     document

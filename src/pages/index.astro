@@ -1,9 +1,54 @@
 ---
 import Main from '../layouts/main.astro';
+import BioButton from '../components/BioButton.astro';
 ---
 
 <Main title="About me">
-  <div class="grid place-items-center h-screen content-center">
-    <div class="center">Hello there 🧔🏼</div>
+  <div class="container mx-auto my-24 flex flex-wrap-reverse h-auto">
+    <div class="flex-auto w-full md:w-1/3 object-cover my-auto">
+      <img
+        src="profilepic.jpg"
+        class="max-w-xs w-full mx-auto border-2 dark:border-amber-400 border-blue-600"
+        aria-label="My profile picture"
+      />
+    </div>
+    <div class="flex-auto w-full md:w-2/3 mb-8">
+      <div class="container w-4/6 mx-auto">
+        <span>
+          <h1 class="text-center text-4xl dark:text-amber-400 text-blue-600">
+            Giulio Mazzanti
+          </h1>
+          <h2 class="text-center">(a.k.a. Giuzzilla)</h2>
+        </span>
+        <div class="container my-5">
+          <div>I'm a Software Engineer based in Milan (Italy).</div>
+
+          <BioButton targetId="current-job">Current Job</BioButton>
+          <BioButton targetId="work-interests">Work Interests</BioButton>
+          <BioButton targetId="tech-stack">Tech-Stack</BioButton>
+          <BioButton targetId="education">Education</BioButton>
+          <div class="bio-section hidden" id="current-job">
+            I'm currently leading the Engineering team at Quick Algorithm, a
+            startup working on Scops, a platform for advanced maintenance based
+            on IoT data (CMMS / Asset Performance Management).
+          </div>
+          <div class="bio-section hidden" id="work-interests">
+            My interests are at the intersection of Data-Intensive Web
+            Applications, Cloud Architectures, AI Product Design & recently IoT
+            (specifically LoRaWAN).
+          </div>
+          <div class="bio-section hidden" id="tech-stack">
+            I code mostly in Python in my day-to-day work (e.g. Airflow, Flask,
+            FastAPI, various ML tools). I enjoyed trying out functional
+            languages like Scala. Recently I'm working on some small projects in
+            Rust.
+          </div>
+          <div class="bio-section hidden" id="education">
+            I recently graduated in a MSc in Computer Science at Georgia Tech,
+            previously I did my BSc at Bocconi University (BEMACS).
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </Main>

@@ -1,0 +1,43 @@
+---
+interface Props {
+    targetId: string;
+}
+
+const { targetId } = Astro.props as Props;
+---
+
+<bio-button data-target-id={targetId}>
+    <button
+        class="bg-transparent mx-2 my-4 hover:bg-blue-600 hover:dark:bg-amber-400 dark:text-amber-400 text-blue-600 dark:border-amber-400 border-blue-600 hover:text-white hover:dark:text-black py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+    >
+        <slot />
+    </button>
+</bio-button>
+
+<script>
+    class BioButton extends HTMLElement {
+        constructor() {
+            super();
+
+            const button = this.querySelector('button');
+            const targetId = this.dataset.targetId;
+            if (!targetId) {
+                return;
+            }
+            const target = document.getElementById(targetId);
+            button?.addEventListener('click', () => {
+                const targets = Array.from(
+                    document.getElementsByClassName('bio-section')
+                );
+                targets.forEach(target => {
+                    target.classList.add('hidden');
+                });
+                if (target) {
+                    target.classList.toggle('hidden');
+                }
+            });
+        }
+    }
+
+    customElements.define('bio-button', BioButton);
+</script>

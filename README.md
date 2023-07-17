@@ -1,7 +1,7 @@
-# [giuzzilla.dev](giuzzilla.dev)
+# [giuzzilla.dev](https://giuzzilla.dev)
 
 My personal website built with:
 
-- [Astro](astro.build)
+- [Astro](https://astro.build)
 - [Tailwind CSS](https://tailwindcss.com/)
 - TypeScript / Plain Javascript

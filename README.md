@@ -1,12 +1,7 @@
-# Astro with Tailwind
+# [giuzzilla.dev](giuzzilla.dev)
 
-```
-npm create astro@latest -- --template with-tailwindcss
-```
+My personal website built with:
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
-
-For complete setup instructions, please see our [Tailwind Integration Guide](https://docs.astro.build/en/guides/integrations-guide/tailwind).
+- [Astro](astro.build)
+- [Tailwind CSS](https://tailwindcss.com/)
+- TypeScript / Plain Javascript

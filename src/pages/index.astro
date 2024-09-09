@@ -3,6 +3,33 @@ import Main from "../layouts/main.astro";
 import BioButton from "../components/BioButton.astro";
 import { Picture } from "astro:assets";
 import profileImage from "../../public/profilepic.jpg";
+
+const sections = [
+  {
+    id: "current-job",
+    title: "Current Job",
+    content:
+      "I'm currently leading the Engineering team at Quick Algorithm, a startup working on Scops, a platform for advanced maintenance based on IoT data (CMMS / Asset Performance Management).",
+  },
+  {
+    id: "work-interests",
+    title: "Work Interests",
+    content:
+      "My interests are at the intersection of Data-Intensive Web Applications, Cloud Architectures, AI Product Design & recently IoT (specifically LoRaWAN).",
+  },
+  {
+    id: "tech-stack",
+    title: "Tech-Stack",
+    content:
+      "I code mostly in Python in my day-to-day work (e.g. Airflow, Flask, FastAPI, various ML tools). I enjoyed trying out functional languages like Scala. Recently I'm working on some small projects in Rust.",
+  },
+  {
+    id: "education",
+    title: "Education",
+    content:
+      "I recently graduated in a MSc in Computer Science at Georgia Tech, previously I did my BSc at Bocconi University (BEMACS).",
+  },
+];
 ---
 
 <Main title="About me">
@@ -32,31 +59,18 @@ import profileImage from "../../public/profilepic.jpg";
         </span>
         <div class="container my-5">
           <div>I'm a Software Engineer based in Milan (Italy).</div>
-
-          <BioButton targetId="current-job">Current Job</BioButton>
-          <BioButton targetId="work-interests">Work Interests</BioButton>
-          <BioButton targetId="tech-stack">Tech-Stack</BioButton>
-          <BioButton targetId="education">Education</BioButton>
-          <div class="bio-section hidden" id="current-job">
-            I'm currently leading the Engineering team at Quick Algorithm, a
-            startup working on Scops, a platform for advanced maintenance based
-            on IoT data (CMMS / Asset Performance Management).
-          </div>
-          <div class="bio-section hidden" id="work-interests">
-            My interests are at the intersection of Data-Intensive Web
-            Applications, Cloud Architectures, AI Product Design & recently IoT
-            (specifically LoRaWAN).
-          </div>
-          <div class="bio-section hidden" id="tech-stack">
-            I code mostly in Python in my day-to-day work (e.g. Airflow, Flask,
-            FastAPI, various ML tools). I enjoyed trying out functional
-            languages like Scala. Recently I'm working on some small projects in
-            Rust.
-          </div>
-          <div class="bio-section hidden" id="education">
-            I recently graduated in a MSc in Computer Science at Georgia Tech,
-            previously I did my BSc at Bocconi University (BEMACS).
-          </div>
+          {
+            sections.map((section) => (
+              <BioButton targetId={section.id}>{section.title}</BioButton>
+            ))
+          }
+          {
+            sections.map((section) => (
+              <div class="bio-section hidden" id={section.id}>
+                {section.content}
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>

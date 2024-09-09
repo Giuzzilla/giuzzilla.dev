@@ -1,6 +1,19 @@
 ---
 import SocialIcons from "./SocialIcons.astro";
 import Logo from "./Logo.astro";
+
+const pages = [
+  {
+    title: "About me",
+    href: "/",
+    disabled: false,
+  },
+  {
+    title: "Blog (In construction)",
+    href: "/blog",
+    disabled: true,
+  },
+];
 ---
 
 <header>
@@ -31,16 +44,25 @@ import Logo from "./Logo.astro";
     </button>
 
     <div class="hidden lg:flex lg:gap-x-12">
-      <a
-        href="/"
-        class="text-sm font-semibold p-6 leading-6 text-slate-900 dark:text-slate-50 hover:text-blue-700 dark:hover:text-amber-400"
-        >About me</a
-      >
-      <span
-        aria-disabled="true"
-        class="text-sm font-light p-6 leading-6 text-slate-600 dark:text-slate-50"
-        >Blog (In construction)</span
-      >
+      {
+        pages.map((page) =>
+          page.disabled ? (
+            <span
+              aria-disabled="true"
+              class="text-sm font-light p-6 leading-6 text-slate-600 dark:text-slate-50"
+            >
+              {page.title}
+            </span>
+          ) : (
+            <a
+              href={page.href}
+              class="text-sm font-semibold p-6 leading-6 text-slate-900 dark:text-slate-50 hover:text-blue-700 dark:hover:text-amber-400"
+            >
+              {page.title}
+            </a>
+          ),
+        )
+      }
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:gap-x-6 lg:justify-end">
       <SocialIcons />
@@ -80,16 +102,25 @@ import Logo from "./Logo.astro";
           </button>
         </div>
         <div class="grid gap-y-6 text-center">
-          <a
-            href="/"
-            class="-mx-3 block rounded-lg py-6 text-2xl font-semibold leading-7 text-slate-900 dark:text-slate-50 dark:text-neutral-200 hover:bg-slate-200 dark:hover:bg-slate-800"
-            >About me</a
-          >
-          <span
-            aria-disabled="true"
-            class="-mx-3 block rounded-lg py-6 text-2xl font-light leading-7 text-slate-600 dark:text-slate-50"
-            >Blog (In construction)</span
-          >
+          {
+            pages.map((page) =>
+              page.disabled ? (
+                <span
+                  aria-disabled="true"
+                  class="-mx-3 block rounded-lg py-6 text-2xl font-light leading-7 text-slate-600 dark:text-slate-50"
+                >
+                  {page.title}
+                </span>
+              ) : (
+                <a
+                  href={page.href}
+                  class="-mx-3 block rounded-lg py-6 text-2xl font-semibold leading-7 text-slate-900 dark:text-slate-50 dark:text-neutral-200 hover:bg-slate-200 dark:hover:bg-slate-800"
+                >
+                  {page.title}
+                </a>
+              ),
+            )
+          }
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 ---
-import SocialIcons from './SocialIcons.astro';
-import Logo from './Logo.astro';
+import SocialIcons from "./SocialIcons.astro";
+import Logo from "./Logo.astro";
 ---
 
 <header>
@@ -97,48 +97,48 @@ import Logo from './Logo.astro';
 
   <script>
     function applyTheme(theme: string) {
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-        localStorage.theme = 'dark';
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+        localStorage.theme = "dark";
       } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.theme = 'light';
+        document.documentElement.classList.remove("dark");
+        localStorage.theme = "light";
       }
     }
 
     function SwitchMobileMenu() {
-      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenu = document.getElementById("mobile-menu");
       if (!mobileMenu) return;
-      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle("hidden");
     }
 
     document
-      .getElementById('mobile-menu-button-open')
-      ?.addEventListener('click', () => SwitchMobileMenu());
+      .getElementById("mobile-menu-button-open")
+      ?.addEventListener("click", () => SwitchMobileMenu());
 
     document
-      .getElementById('mobile-menu-button-close')
-      ?.addEventListener('click', () => SwitchMobileMenu());
+      .getElementById("mobile-menu-button-close")
+      ?.addEventListener("click", () => SwitchMobileMenu());
 
     function toggleTheme() {
-      if (localStorage.theme === 'dark') {
-        applyTheme('light');
+      if (localStorage.theme === "dark") {
+        applyTheme("light");
       } else {
-        applyTheme('dark');
+        applyTheme("dark");
       }
     }
 
-    if (localStorage.theme === 'light' || !('theme' in localStorage)) {
-      applyTheme('light');
+    if (localStorage.theme === "light" || !("theme" in localStorage)) {
+      applyTheme("light");
     } else {
-      applyTheme('dark');
+      applyTheme("dark");
     }
 
-    const light_logos = document.getElementsByClassName('logo-light');
-    const dark_logos = document.getElementsByClassName('logo-dark');
+    const light_logos = document.getElementsByClassName("logo-light");
+    const dark_logos = document.getElementsByClassName("logo-dark");
 
-    [...light_logos, ...dark_logos].forEach(logo => {
-      logo.addEventListener('click', () => toggleTheme());
+    [...light_logos, ...dark_logos].forEach((logo) => {
+      logo.addEventListener("click", () => toggleTheme());
     });
   </script>
 </header>

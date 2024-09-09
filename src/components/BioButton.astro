@@ -19,25 +19,25 @@ const { targetId } = Astro.props as Props;
         constructor() {
             super();
 
-            const button = this.querySelector('button');
+            const button = this.querySelector("button");
             const targetId = this.dataset.targetId;
             if (!targetId) {
                 return;
             }
             const target = document.getElementById(targetId);
-            button?.addEventListener('click', () => {
+            button?.addEventListener("click", () => {
                 const targets = Array.from(
-                    document.getElementsByClassName('bio-section')
+                    document.getElementsByClassName("bio-section")
                 );
-                targets.forEach(target => {
-                    target.classList.add('hidden');
+                targets.forEach((target) => {
+                    target.classList.add("hidden");
                 });
                 if (target) {
-                    target.classList.toggle('hidden');
+                    target.classList.toggle("hidden");
                 }
             });
         }
     }
 
-    customElements.define('bio-button', BioButton);
+    customElements.define("bio-button", BioButton);
 </script>

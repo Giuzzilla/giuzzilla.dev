@@ -1,8 +1,8 @@
 ---
-import Main from '../layouts/main.astro';
-import BioButton from '../components/BioButton.astro';
-import { Picture } from '@astrojs/image/components';
-import profileImage from '../../public/profilepic.jpg';
+import Main from "../layouts/main.astro";
+import BioButton from "../components/BioButton.astro";
+import { Picture } from "astro:assets";
+import profileImage from "../../public/profilepic.jpg";
 ---
 
 <Main title="About me">
@@ -15,10 +15,10 @@ import profileImage from '../../public/profilepic.jpg';
         sizes="(max-width: 300px) 100vw, 300px"
         alt="My profile picture"
         class:list={[
-          'mx-auto',
-          'border-2',
-          'dark:border-amber-400',
-          'border-blue-600',
+          "mx-auto",
+          "border-2",
+          "dark:border-amber-400",
+          "border-blue-600",
         ]}
       />
     </div>

@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 const { title } = Astro.props;
 ---
 
-<html class="h-full" lang="en">
+<html class="min-h-full" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -12,13 +12,19 @@ const { title } = Astro.props;
       name="description"
       content="Personal website of Giulio Mazzanti. A Software Engineer based in Milan."
     />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Giulio Mazzanti's Website"
+      href={new URL("rss.xml", Astro.site)}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" /><title>
       Giulio Mazzanti - {title}
     </title></head
   >
 
   <body
-    class="h-full text-slate-800 dark:text-gray-50 bg-gray-300 dark:bg-slate-900"
+    class="min-h-full mb-24 text-slate-800 dark:text-gray-50 bg-gray-300 dark:bg-slate-900"
   >
     <Header />
     <main>

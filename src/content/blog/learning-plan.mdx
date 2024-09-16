@@ -1,0 +1,167 @@
+---
+title: 'Free-time Learning & Reading Plan'
+pubDate: 2024-09-16
+description: 'A post that will get updated over time listing my readings/learning goals, hopefully correctly divided by subject.'
+---
+## Structure
+
+I will try to divide the article by subjects:
+
+* [Academic](#academic)
+    * Physics & Maths
+    * Computing
+* [Professional](#professional)
+    * Software Development
+    * Rust Language
+    * Product Management & Startups
+* [Free-time](#free-time)
+
+## Academic
+
+My current "academic"-style learning goals are focused at the intersection between Physics & Computer Engineering.
+
+After a classic Electromagnetism course, the paths start to diverge.
+
+```mermaid
+flowchart TD;
+    A[Physics I]-->B[Physics II];
+
+    B-->CCom[Circuits & Electronics];
+    CCom-->DCom[Computation Structures];
+    DCom-->ECom[Software Construction];
+    ECom-->FCom[Computer Networking];
+    FCom-->GCom[Computer Systems Engineering];
+    GCom-->HCom[Databases];
+    HCom-->ICom[Distributed Systems];
+    ICom-->JCom[Compilers];
+
+    JCom --> |?| JQu[Quantum Computing];
+
+    CCom <--> CPh[Diff. Eq.];
+
+
+    B-->CPh;
+    CPh-->DPh[Mult. Calc.];
+    DPh-->EPh[Physics III];
+    EPh-->FPh[Susskind Classical Mech];
+    FPh-->GPh[Susskind Others];
+    GPh-->|?| HPh[Statistical Physics];
+    HPh-->|?| IPh[Differential Forms];
+    HPh-->|?| JQu[Quantum Computing];
+    HPh-->|?| KPh[Non-linear Dynamics & Chaos];
+    HPh-->|?| LPh[Real Analysis Refresher];
+```
+
+
+### Common start
+
+
+* Physics I (Classical Mechanics) - [MIT OCW 8.01](https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/) **COMPLETED**
+* Physics II (Electromagnetism) - [MIT OCW 8.02](https://ocw.mit.edu/courses/8-02-physics-ii-electricity-and-magnetism-spring-2019/) **Up next: L24: Lenz's Law**
+
+### Physics
+
+* Differential Equations - MIT OCW
+* Multivariable Calculus - MIT OCW
+* Physics III - MIT OCW
+* Classical Mechanics - Stanford Lectures by Susskind
+* Something else by Susskind, Relativity / Quantum Mechanics
+* Statistical Physics - Maybe MIT OCW, maybe book
+
+Choose:
+* Differential Forms
+* Quantum Computing
+* Non-linear Dynamics & Chaos
+* Real Analysis Refresher
+
+### Computing
+
+* Circuits & Electronics - MIT OCW
+* Computation Structures - MIT OCW
+* Software Construction - MIT OCW
+* Computer Networking: A Top-Down Approach - Kurose & Ross **COMPLETED**
+* Computer Systems Engineering - MIT
+* Databases - CMU
+* Distributed Systems
+* Compilers
+
+
+Misc (to organize):
+
+* [Algorithms for Big Data](https://youtube.com/playlist?list=PL2SOU6wwxB0v1kQTpqpuu5kEJo2i-iUyf&feature=shared)
+* [Concurrent Programming in Rust](https://youtube.com/playlist?list=PL5aMzERQ_OZ9j40DJNlsem2qAGoFbfwb4&feature=shared)
+* [Data Structures for Data-Intensive Applications: Tradeoffs and Design Guidelines](https://cs-people.bu.edu/mathan/publications/fnt23-athanassoulis.pdf)
+* [Performance Engineering of Software Systems](https://ocw.mit.edu/courses/6-172-performance-engineering-of-software-systems-fall-2018/pages/lecture-slides/)
+* [Writing A Compiler in Go](https://compilerbook.com/)
+* [Computer Security](https://css.csail.mit.edu/6.858/2023/schedule.html)
+* [A write-ahead log is not a universal part of durability](https://notes.eatonphil.com/2024-07-01-a-write-ahead-log-is-not-a-universal-part-of-durability.html)
+* [What Goes Around Comes Around... And Around](https://db.cs.cmu.edu/papers/2024/whatgoesaround-sigmodrec2024.pdf) **COMPLETED**
+* [Haskell lectures - UPenn](https://www.cis.upenn.edu/%7Ecis1940/spring13/lectures.html)
+* How to understand LSM Trees, by Alex Miller.
+* Database Internals/DDIA2
+* LSM Survey Paper(s)3
+* LSM Paper
+* [Computer Architecture by ETH](https://safari.ethz.ch/architecture/fall2022/doku.php?id=schedule)
+* [PCB Design mini-course](https://www.reddit.com/r/PrintedCircuitBoard/s/akwkZoJOFB)
+
+
+## Professional
+
+### Software Development
+
+* Designing Data-Intensive Applications by Martin Kleppmann **COMPLETED**
+* A Philosophy of Software Design by John Ousterhout **COMPLETED**
+* The Pragmatic Programmer book **COMPLETED**
+* Domain-Driven Design by Eric Evans **COMPLETED**
+* Implementing Domain-Driven Design by Vaughn Vernon **COMPLETED**
+* Refactoring by Martin Fowler **COMPLETED**
+* Accelerate by Nicole Forsgren **COMPLETED**
+* Staff Engineer by Will Larson
+* The Manager's Path by Camille Fournier
+* Head-first Design Patterns
+* Team Topologies
+* Extreme Programming by Kent Beck
+* [Increment's blog - Testing](https://increment.com/testing/)
+* The Software Engineer's Guidebook by Gergely Orosz
+* Neal Ford's two books on sw architecture
+* Agile testing (O'Reilly)
+* [Domain Modeling Made Functional](https://pragprog.com/titles/swdddf/domain-modeling-made-functional/)
+* [The Copenhagen Book](https://thecopenhagenbook.com)
+* [Implementing Stripe-like Idempotency Keys in Postgres](https://brandur.org/idempotency-keys)
+* [Suggested readings from Franco Fernando](https://twitter.com/Franc0Fernand0/status/1748703271366041947?t=dL6g1rEuvNLLtam_0kWaZg&s=19)
+
+### Rust
+
+* Crust of Rust Series by Jon Gjengset **COMPLETED**
+* Rust Async little book **COMPLETED**
+* Rust for Rustaceans book **COMPLETED**
+* Rust in Action book **COMPLETED**
+* Decrusted Series by Jon Gjengset **Up next: Decrusting the Tracing crate**
+* [https://rust-exercises.com/](https://rust-exercises.com/)
+* Rewriting Git from scratch in Rust (Jon video)
+* Rustonomicon
+* Rust Embedded little book
+* Jon video on Async
+* Jon video on Pinning
+* [https://rust-unofficial.github.io/too-many-lists/](https://rust-unofficial.github.io/too-many-lists/)
+* rfc 1105 api evolution
+* Rustlang api-Guidelines
+* Effective Rust
+* [https://github.com/pretzelhammer/rust-blog/blob/master/posts/restful-api-in-sync-and-async-rust.md](https://github.com/pretzelhammer/rust-blog/blob/master/posts/restful-api-in-sync-and-async-rust.md)
+* [https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md](https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md)
+* [https://github.com/pretzelhammer/rust-blog/blob/master/posts/tour-of-rusts-standard-library-traits.md](https://github.com/pretzelhammer/rust-blog/blob/master/posts/tour-of-rusts-standard-library-traits.md)
+* [https://github.com/pretzelhammer/rust-blog/blob/master/posts/sizedness-in-rust.md](https://github.com/pretzelhammer/rust-blog/blob/master/posts/sizedness-in-rust.md)
+* [From Zero to Async in Embedded Rust](https://www.youtube.com/watch?v=wni5h5vIPhU)
+
+
+### Product Management & Startups
+
+* [CS183: Startup](https://www.youtube.com/playlist?list=PLU630Cd0ZQCMeQiSvU7DJmDJDitdE7m7r) **Up next: Lecture 11 - Hiring & Culture pt2**
+* Inspired **Up next: chapter 15 Jane manning**
+
+
+## Free-time
+
+* Hitchhiker's Guide to the Galaxy **COMPLETED**
+* The Big Fat surprise **COMPLETED**
+* Dune 1 audiobook **Up next: Chapter 20**

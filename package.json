@@ -16,6 +16,7 @@
 		"astro": "^4.15.4",
 		"autoprefixer": "^10.4.7",
 		"markdown-it": "^14.1.0",
+		"playwright": "^1.47.1",
 		"postcss": "^8.4.14",
 		"rehype-mermaid": "^2.1.0",
 		"sanitize-html": "^2.13.0",

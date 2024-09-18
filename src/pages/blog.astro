@@ -10,20 +10,22 @@ const allPosts = await getCollection("blog");
         <header class="my-16">
             <h1 class="text-center text-4xl">My Blog Posts</h1>
         </header>
-        <ul class="list-[square]">
-            {
-                allPosts.map((post) => (
-                    <li class="my-4">
-                        <a
-                            class="hover:text-blue-700 dark:hover:text-amber-400"
-                            href={`/blog/${post.slug}/`}
-                        >
-                            {post.data.title} -{" "}
-                            {post.data.pubDate.toLocaleDateString()}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
+        <div class="mx-8">
+            <ul class="list-[square]">
+                {
+                    allPosts.map((post) => (
+                        <li class="my-4">
+                            <a
+                                class="hover:text-blue-700 dark:hover:text-amber-400"
+                                href={`/blog/${post.slug}/`}
+                            >
+                                {post.data.title} -{" "}
+                                {post.data.pubDate.toLocaleDateString()}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
     </div>
 </Main>

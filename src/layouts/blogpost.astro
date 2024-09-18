@@ -6,6 +6,8 @@ const { frontmatter } = Astro.props;
 
 <style is:global>
     article {
+        @apply overflow-x-auto;
+
         a {
             @apply underline hover:text-blue-700 dark:hover:text-amber-400;
         }
@@ -50,7 +52,7 @@ const { frontmatter } = Astro.props;
 
 <Main title={frontmatter.title}>
     <div class="container mx-auto my-24 h-auto">
-        <header class="my-16">
+        <header class="my-16 mx-8">
             <h1 class="text-center text-4xl">{frontmatter.title}</h1>
             <div class="text-center my-2 align-center">
                 <span>Date: </span>
@@ -78,8 +80,6 @@ const { frontmatter } = Astro.props;
             </div>
         </header>
         <hr />
-        <div class="my-8">
-            <slot />
-        </div>
+        <slot />
     </div>
 </Main>

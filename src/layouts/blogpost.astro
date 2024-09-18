@@ -1,5 +1,6 @@
 ---
 import Main from "./main.astro";
+import DateTag from "../components/DateTag.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -57,29 +58,22 @@ const { frontmatter } = Astro.props;
 <Main title={frontmatter.title}>
     <div class="container mx-auto my-24 h-auto">
         <header class="my-16 mx-8">
-            <h1 class="text-center text-4xl">{frontmatter.title}</h1>
+            <h1 class="text-center text-4xl max-w-lg mx-auto my-8">
+                {frontmatter.title}
+            </h1>
             <div class="text-center my-2 align-center">
                 <span>Date: </span>
-                <time
-                    class="text-blue-700 dark:text-amber-400"
-                    datetime={frontmatter.pubDate}
-                    >{frontmatter.pubDate.toLocaleDateString()}</time
-                >
+                <DateTag date={frontmatter.pubDate} />
             </div>
             {
                 frontmatter.updateDate && (
                     <div class="text-center my-2 align-center">
                         <span>Updated: </span>
-                        <time
-                            class="text-blue-700 dark:text-amber-400"
-                            datetime={frontmatter.updateDate}
-                        >
-                            {frontmatter.updateDate.toLocaleDateString()}
-                        </time>
+                        <DateTag date={frontmatter.updateDate} />
                     </div>
                 )
             }
-            <div class="text-center my-2 align-center">
+            <div class="text-center my-8 align-center">
                 {frontmatter.description}
             </div>
         </header>

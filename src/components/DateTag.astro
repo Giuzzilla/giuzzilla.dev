@@ -1,0 +1,12 @@
+---
+interface Props {
+    date: Date;
+}
+
+const { date } = Astro.props as Props;
+---
+
+<time
+    class="bg-transparent dark:text-amber-400 text-blue-600 dark:border-amber-400 border-blue-600 py-0.5 px-2 border border-blue-500 rounded"
+    datetime={date.toString()}>{date.toLocaleDateString()}</time
+>

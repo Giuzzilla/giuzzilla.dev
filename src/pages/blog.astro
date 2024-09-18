@@ -1,5 +1,6 @@
 ---
 import Main from "../layouts/main.astro";
+import DateTag from "../components/DateTag.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("blog");
@@ -19,9 +20,9 @@ const allPosts = await getCollection("blog");
                                 class="hover:text-blue-700 dark:hover:text-amber-400"
                                 href={`/blog/${post.slug}/`}
                             >
-                                {post.data.title} -{" "}
-                                {post.data.pubDate.toLocaleDateString()}
+                                {post.data.title}
                             </a>
+                            <DateTag date={post.data.pubDate} />
                         </li>
                     ))
                 }

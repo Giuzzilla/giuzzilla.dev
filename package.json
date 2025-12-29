@@ -1,5 +1,5 @@
 {
-	"name": "",
+	"name": "giuzzilla.dev",
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
@@ -10,13 +10,12 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^3.1.5",
-		"@astrojs/rss": "^4.0.7",
-		"@astrojs/tailwind": "^5.1.0",
-		"astro": "^4.15.4",
+		"@astrojs/mdx": "^4.3.13",
+		"@astrojs/rss": "^4.0.14",
+		"@astrojs/tailwind": "^6.0.2",
+		"astro": "^5.16.6",
 		"autoprefixer": "^10.4.7",
 		"markdown-it": "^14.1.0",
-		"playwright": "^1.47.1",
 		"postcss": "^8.4.14",
 		"rehype-mermaid": "^2.1.0",
 		"sanitize-html": "^2.13.0",

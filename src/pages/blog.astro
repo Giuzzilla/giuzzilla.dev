@@ -18,7 +18,7 @@ const allPosts = await getCollection("blog");
                         <li class="my-4">
                             <a
                                 class="hover:text-blue-700 dark:hover:text-amber-400"
-                                href={`/blog/${post.slug}/`}
+                                href={`/blog/${post.id}/`}
                             >
                                 {post.data.title}
                             </a>

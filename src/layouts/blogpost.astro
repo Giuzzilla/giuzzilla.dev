@@ -51,6 +51,14 @@ const { frontmatter } = Astro.props;
             ul {
                 @apply list-[circle] list-inside ml-4 my-0;
             }
+
+            li.task-list-item {
+                @apply list-none;
+
+                input[type="checkbox"] {
+                    @apply mr-2;
+                }
+            }
         }
     }
 </style>

@@ -1,12 +1,15 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import { rehypeShiki, unified } from '@astrojs/markdown-remark'
 
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), tailwind()],
+  integrations: [mdx()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   site: "https://giuzzilla.dev",
   markdown: {
     processor: unified({
